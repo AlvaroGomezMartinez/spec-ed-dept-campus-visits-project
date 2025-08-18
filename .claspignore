@@ -1,0 +1,23 @@
+# Ignore node_modules and other common files/folders
+node_modules/
+*.log
+.DS_Store
+.env
+.vscode/
+.git/
+.gitignore
+npm-debug.log
+yarn-error.log
+coverage/
+dist/
+build/
+*.ts
+*.map
+*.md
+*.test.js
+*.spec.js
+# Ignore Mac system files
+Icon?
+
+# Ignore clasp itself
+.claspignore
