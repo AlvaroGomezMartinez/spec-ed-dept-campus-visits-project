@@ -1,3 +1,7 @@
+/**
+ * Runs when the spreadsheet is opened. Adds dropdowns to the Search sheet.
+ * @returns {void}
+ */
 function onOpen() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheet = ss.getSheetByName("Search");
@@ -5,6 +9,11 @@ function onOpen() {
   addCampusDropdown(sheet);
 }
 
+/**
+ * Adds a dropdown list of unique emails to cell B2 in the given sheet.
+ * @param {GoogleAppsScript.Spreadsheet.Sheet} sheet - The sheet to add the dropdown to.
+ * @returns {void}
+ */
 function addEmailDropdown(sheet) {
   const responsesSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses 1");
   const emailCol = 2; // Assuming emails are in column B (index 2)
@@ -19,6 +28,11 @@ function addEmailDropdown(sheet) {
   range.setDataValidation(rule);
 }
 
+/**
+ * Adds a dropdown list of unique campuses to cell B3 in the given sheet.
+ * @param {GoogleAppsScript.Spreadsheet.Sheet} sheet - The sheet to add the dropdown to.
+ * @returns {void}
+ */
 function addCampusDropdown(sheet) {
   const responsesSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses 1");
   const data = responsesSheet.getRange(2, 5, responsesSheet.getLastRow() - 1, 4).getValues(); // Columns E:H
@@ -29,6 +43,10 @@ function addCampusDropdown(sheet) {
   range.setDataValidation(rule);
 }
 
+/**
+ * Filters form response data by selected email and campus, and outputs results to the Search sheet.
+ * @returns {void}
+ */
 function filterData() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const formSheet = ss.getSheetByName("Form Responses 1");
