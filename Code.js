@@ -194,11 +194,6 @@ function filterData() {
   const email = searchSheet.getRange('B2').getValue();
   const campus = searchSheet.getRange('B3').getValue();
 
-  if (!email) {
-    searchSheet.getRange('A5').setValue('Please select an email before filtering.');
-    return;
-  }
-
   const lastCol = formSheet.getLastColumn();
   const headers = formSheet.getRange(1, 1, 1, lastCol).getValues()[0];
   const data = getDataRows(formSheet, 1, lastCol);
