@@ -32,6 +32,9 @@ yarn.lock
 *~
 *.swp
 
+# Ignore Doc files
+*.docx
+
 # Do NOT ignore Apps Script source files
 !appsscript.json
 !Code.js
